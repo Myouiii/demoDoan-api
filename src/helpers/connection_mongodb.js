@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
+console.log(process.env.MONGO_URI);
 const connect = mongoose.createConnection(
-    process.env.MONGO_URL_LOCAL,
+    process.env.MONGO_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -11,7 +12,7 @@ const connect = mongoose.createConnection(
 
 connect.on("connected", function () {
     console.log(`MongoDB::: connected::: ${this.name}`);
-    console.log(`MongoDB::: connected::: ${process.env.MONGO_URL_LOCAL}`);
+    console.log(`MongoDB::: connected::: ${process.env.MONGO_URI}`);
 
 })
 
