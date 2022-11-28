@@ -1,0 +1,249 @@
+GET http://localhost:3001
+##############!! SERVER !!###################
+### Register
+POST http://localhost:3001/apis/accounts/signup
+Content-Type: application/json
+
+{
+    "account": {
+    "email": "ansovoia23@gmail.com",
+    "password": "123",
+    "confirmPassword": "123",
+    "fullName": "ansovoi113",
+    "birthday": "01/01/2001",
+    "gender": true,
+    "address": "108 cao lo"
+    }
+    
+
+}
+### Login
+POST http://localhost:3001/apis/login
+Content-Type: application/json
+
+{
+    "account": {
+    "email": "ansovoia23@gmail.com",
+    "password": "123",
+    "remember": ["on"]
+    }
+
+}
+### Login gg
+GET http://localhost:3001/apis/login/gg
+
+
+### GET gg acc
+GET http://localhost:3001/api/current_user
+Content-Type: application/json
+
+{
+   
+
+}
+
+### Logout
+POST  http://localhost:3001/apis/login/logout
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJteXNob3AiLCJzdWIiOnsiYWNjb3VudElkIjoiNjM0ZTE0MzNkNjFkMmYzNWQ0YTUyYThlIn0sImlhdCI6MTY2NjA2MjE4MSwiZXhwIjoxNjgxNjE0MTgxfQ.yVibHpfB4xzYsnfl8rsb3oERoICqUXhAbTTuxu5IVuI"
+}
+### Login refresh token
+POST http://localhost:3001/apis/login/refresh_token
+Content-Type: application/json
+
+{
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJteXNob3AiLCJzdWIiOnsiYWNjb3VudElkIjoiNjM0ZTE0MzNkNjFkMmYzNWQ0YTUyYThlIn0sImlhdCI6MTY2NjA2MTQxMiwiZXhwIjoxNjgxNjEzNDEyfQ.tQjhQknVqdD-SdJ4aSXF68ABpHZK8dJUacFxC9cii_g"
+
+}
+### Login auth
+GET http://localhost:3001/apis/login/auth
+Content-Type: application/json
+
+{
+  
+
+}
+### Login =>  get user
+GET http://localhost:3001/apis/user
+Content-Type: application/json
+
+{
+    
+
+}
+### Login =>  update user
+PUT http://localhost:3001/apis/user/update
+Content-Type: application/json
+
+{
+    "userId": "63580f69e4589c46302dd6d4",
+    "value" : {
+        "fullName": "bui trung tinh"
+    }
+
+}
+##############!! ADMIN !!###################
+
+### Create Admin
+POST http://localhost:3001/apis/admin/signup
+Content-Type: application/json
+
+{
+    "account": {
+    "userName": "admin1",
+    "fullName": "adminabcdef",
+    "email": "ansovoia23@gmail.com",
+    "password": "123",
+    "type": 0,
+    "age": 23
+    }
+
+}
+### Login Admin
+POST http://localhost:3001/apis/admin/login
+Content-Type: application/json
+
+{
+    "userName": "admin1",
+    "password": "123"
+
+}
+### Get all Admin
+GET http://localhost:3001/apis/admin/users
+Content-Type: application/json
+
+{
+   
+
+}
+### Delete Admin
+DELETE http://localhost:3001/apis/admin/users/del
+Content-Type: application/json
+
+{
+    "email": "ansovoia23@gmail.com"
+
+}
+### Admin GET List user
+GET http://localhost:3001/apis/admin/customer
+Content-Type: application/json
+
+### Admin GET 1 user
+GET http://localhost:3001/apis/admin/customer/63580f91e4589c46302dd6df
+Content-Type: application/json
+
+
+
+### Admin DELETE user
+DELETE http://localhost:3001/apis/admin/customer/del
+Content-Type: application/json
+
+{
+    "userId": "63580f91e4589c46302dd6df"
+}
+
+### Admin add product
+POST http://localhost:3001/apis/admin/products/add
+Content-Type: application/json
+
+{
+    "product": {
+        "type": 0,
+        "avatar": "https://i.pinimg.com/564x/0d/41/ee/0d41ee0e5a48fa77192798271bfc6b1c.jpg",
+        "code": "SKU2005008541",
+        "name":"Samsung J7+",
+        "price": 1000000,
+        "brand":"Samsung",
+        "stock": 11,
+        "discount": 0,
+        "rate": 1,
+        "otherInfo": []
+    },
+    "details": {
+        "catalogs": [],
+        "warranty": 12,
+        "color": "#000000",
+        "cpu": "Core i10",
+        "rom": 1,
+        "ram": 2
+    },
+    "desc": {
+        "title": "Samsung J7+",
+        "detailDesList": [
+        {
+            "content": "Content samsung product",
+            "photo": "https://i.pinimg.com/564x/0d/41/ee/0d41ee0e5a48fa77192798271bfc6b1c.jpg"
+        }
+        ]
+    }
+}
+### GET All product
+GET http://localhost:3001/apis/products/all?page=-1
+Content-Type: application/json
+
+{
+
+}
+
+### GET All order
+GET http://localhost:3001/apis/admin/order
+Content-Type: application/json
+
+{
+
+}
+
+### GET User order
+GET http://localhost:3001/apis/orders/list?userId=63580f69e4589c46302dd6d4
+Content-Type: application/json
+
+{
+
+}
+### 
+GET http://localhost:3001/apis/orders/list
+Content-Type: application/json
+
+{
+    "userId": "63580f69e4589c46302dd6d4"
+}
+
+### Admin GET addresses
+GET http://localhost:3001/apis/address/street?id=79&district=63697afa3cb7b8f95f15fdef
+Content-Type: application/json
+
+{
+   
+}
+##############!! CLIENT !!###################
+### Login client
+POST http://localhost:3000/apis/login
+Content-Type: application/json
+
+{
+    "account": {
+    "email": "ansovoia23@gmail.com",
+    "password": "123",
+    "remember": ["on"]
+    }
+    
+
+}
+### Refresh-token
+POST http://localhost:3000/user/refresh-token
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzNhNTc1Yzk3ZWUyYjJkYmYwMmU4YzAiLCJpYXQiOjE2NjQ5NzU5NzEsImV4cCI6MTY5NjUzMzU3MX0.7TTlzrQxEKI-qcICvZQE8LQKLaS44fMR9tOlFOsfKxM"
+}
+
+
+### Logout
+DELETE  http://localhost:3000/user/logout
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzNhNTc1Yzk3ZWUyYjJkYmYwMmU4YzAiLCJpYXQiOjE2NjQ5NzU5NzEsImV4cCI6MTY5NjUzMzU3MX0.7TTlzrQxEKI-qcICvZQE8LQKLaS44fMR9tOlFOsfKxM"
+}
