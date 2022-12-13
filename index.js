@@ -36,9 +36,7 @@ const dev = app.get('env') !== 'production';
 if (!dev) {
   app.disable('x-powered-by');
   app.use(morgan('common'));
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/src/build', 'index.html'));
-  });
+ 
 } else {
   app.use(morgan('dev'));
 }
